@@ -88,7 +88,7 @@ public class BancoTest {
 
 		// Cenario
 		Cliente cliente = new Cliente("Joao");
-		Conta contaOrigem = new Conta(cliente, 123, 100, TipoConta.CORRENTE);
+		Conta contaOrigem = new Conta(cliente, 123, 0, TipoConta.CORRENTE);
 
 		Cliente cliente2 = new Cliente("Maria");
 		Conta contaDestino = new Conta(cliente2, 456, 0, TipoConta.CORRENTE);
@@ -99,7 +99,7 @@ public class BancoTest {
 		banco.efetuarTransferencia(123, 456, 100);
 
 		// Verificação
-		assertEquals(0, contaOrigem.getSaldo());
+		assertEquals(-100, contaOrigem.getSaldo());
 		assertEquals(100, contaDestino.getSaldo());
 	}
 	
